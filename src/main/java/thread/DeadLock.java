@@ -20,6 +20,7 @@ public class DeadLock {
                     e.printStackTrace();
                 }
                 synchronized (B) {
+                    notify();
                     System.out.println("thread a lock .....");
                 }
             }
