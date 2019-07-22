@@ -5,15 +5,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ElementType.TYPE,ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Base {
+@Target(ElementType.TYPE)
+public @interface MyAnnotation {
+    @AliasFor("alias")
+    String value() default "";
 
-   @AliasFor("data")
-   public String value() default "";
-
-
-   @AliasFor("value")
-   public String data() default "";
-
+    @AliasFor("value")
+    String alias() default "";
 }

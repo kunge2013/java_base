@@ -1,15 +1,18 @@
 package annotation;
 
+import org.springframework.core.annotation.AnnotationUtils;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
+@MyAnnotation(value = "aa", alias = "bb")
 public class AnnotationTest {
 
     @Two
     public String getAll() {
         return "hello world !";
     }
-    public static void main(String[] args) throws NoSuchMethodException {
+    static void testTwo() throws NoSuchMethodException {
         Class<AnnotationTest> x = AnnotationTest.class;
         Method methd = x.getDeclaredMethod("getAll", new Class[]{});
         Annotation[] anns = methd.getDeclaredAnnotations(); /**声明的注解*/
@@ -48,5 +51,18 @@ public class AnnotationTest {
             System.out.println(res.value());
         }
 
+    }
+
+    static void testAliasfor2() {
+//        MyAnnotation ann = AnnotationTest.class.getAnnotation(MyAnnotation.class);
+//        System.out.println(ann.value());
+//        System.out.println(ann.alias());
+        MyAnnotation annotation = AnnotationUtils.findAnnotation(AnnotationTest.class, MyAnnotation.class);
+        System.out.println(annotation.alias());
+    }
+
+    public static void main(String[] args) throws NoSuchMethodException {
+//        testTwo();
+        testAliasfor2();
     }
 }

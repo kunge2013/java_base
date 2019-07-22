@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Base("haha111111111")
+@Base(value = "test")
 @Base2("hehe22222222")
 public @interface Two {
 
