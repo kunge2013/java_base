@@ -3,7 +3,7 @@ package sort;
 /**
  * 桶排序
  */
-public class TongPaiXu {
+public class BucketSort {
     public static void main(String[] args) {
         int arr[] = {3,2,7,5,3,8,1,9,19};
         int max = 19;
