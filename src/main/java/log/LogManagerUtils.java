@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 public class LogManagerUtils {
     // 初始化LogManager
     static {
+        System.setProperty("APP_HOME","E:/workspace");
         // 读取配置文件
         ClassLoader cl = LogManager.class.getClassLoader();
         InputStream inputStream = null;
@@ -49,5 +50,8 @@ public class LogManagerUtils {
     public static void main(String[] args) {
         Logger logger = getLogger(LogManagerUtils.class);
         logger.info("hahahahh");
+        logger.info("bbbbbbbbbb");
+        logger.info("ccccccc");
+
     }
 }
